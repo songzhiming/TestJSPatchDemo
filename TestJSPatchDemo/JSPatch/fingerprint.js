@@ -3,7 +3,7 @@ defineClass('AppDelegate', {
             // replace the -genView method
             genView: function() {
             var view = self.ORIGgenView();
-            view.setBackgroundColor(UIColor.redColor())
+            view.setBackgroundColor(UIColor.yellowColor())
             var label = UILabel.alloc().initWithFrame(view.frame());
             label.setText("JSPatch");
             label.setTextAlignment(1);
