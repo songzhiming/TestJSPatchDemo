@@ -21,13 +21,13 @@
     [JPEngine startEngine];
     
     // exec js directly
-//    [JPEngine evaluateScript:@"\
-//     var alertView = require('UIAlertView').alloc().init();\
-//     alertView.setTitle('Alert');\
-//     alertView.setMessage('AlertView from js'); \
-//     alertView.addButtonWithTitle('OK');\
-//     alertView.show(); \
-//     "];
+    [JPEngine evaluateScript:@"\
+     var alertView = require('UIAlertView').alloc().init();\
+     alertView.setTitle('Alert');\
+     alertView.setMessage('AlertView from js'); \
+     alertView.addButtonWithTitle('OK');\
+     alertView.show(); \
+     "];
     
     // exec js directly
 //    [JPEngine evaluateScript:@"\
@@ -45,14 +45,13 @@
         NSString *script = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         NSLog(@"script===%@",script);
         [JPEngine evaluateScript:script];
-        self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-        HomeViewController *vc = [[HomeViewController alloc]init];
-        self.window.rootViewController = vc;
-        UIView *view = [self genView];
-        //    view.backgroundColor = [UIColor redColor];
-        [vc.view addSubview:view];
-        [self.window makeKeyAndVisible];
+
     }];
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    HomeViewController *vc = [[HomeViewController alloc]init];
+    self.window.rootViewController = vc;
+    //    view.backgroundColor = [UIColor redColor];
+    [self.window makeKeyAndVisible];
     
     // exec local js file
 //    NSString *sourcePath = [[NSBundle mainBundle] pathForResource:@"fingerprint" ofType:@"js"];
