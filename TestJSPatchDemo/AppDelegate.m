@@ -21,13 +21,13 @@
     [JPEngine startEngine];
     
     // exec js directly
-    [JPEngine evaluateScript:@"\
-     var alertView = require('UIAlertView').alloc().init();\
-     alertView.setTitle('Alert');\
-     alertView.setMessage('AlertView from js'); \
-     alertView.addButtonWithTitle('OK');\
-     alertView.show(); \
-     "];
+//    [JPEngine evaluateScript:@"\
+//     var alertView = require('UIAlertView').alloc().init();\
+//     alertView.setTitle('Alert');\
+//     alertView.setMessage('AlertView from js'); \
+//     alertView.addButtonWithTitle('OK');\
+//     alertView.show(); \
+//     "];
     
     // exec js directly
 //    [JPEngine evaluateScript:@"\
@@ -38,15 +38,15 @@
 //     alertView.show(); \
 //     "];
     
-    NSURLRequest *request = [[NSURLRequest alloc]initWithURL:[NSURL URLWithString:@"https://raw.githubusercontent.com/songzhiming/TestJSPatchDemo/master/TestJSPatchDemo/JSPatch/fingerprint.js"] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
+    NSURLRequest *request = [[NSURLRequest alloc]initWithURL:[NSURL URLWithString:@"https://raw.githubusercontent.com/songzhiming/TestJSPatchDemo/master/TestJSPatchDemo/JSPatch/fingerprint.js"] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:20.0];
     
     // exec js file from network
-    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-        NSString *script = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        NSLog(@"script===%@",script);
-        [JPEngine evaluateScript:script];
-
-    }];
+//    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+//        NSString *script = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+//        NSLog(@"script===%@",script);
+//        [JPEngine evaluateScript:script];
+//
+//    }];
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     HomeViewController *vc = [[HomeViewController alloc]init];
     self.window.rootViewController = vc;
@@ -54,9 +54,9 @@
     [self.window makeKeyAndVisible];
     
     // exec local js file
-//    NSString *sourcePath = [[NSBundle mainBundle] pathForResource:@"fingerprint" ofType:@"js"];
-//    NSString *script = [NSString stringWithContentsOfFile:sourcePath encoding:NSUTF8StringEncoding error:nil];
-//    [JPEngine evaluateScript:script];
+    NSString *sourcePath = [[NSBundle mainBundle] pathForResource:@"fingerprint" ofType:@"js"];
+    NSString *script = [NSString stringWithContentsOfFile:sourcePath encoding:NSUTF8StringEncoding error:nil];
+    [JPEngine evaluateScript:script];
     
 //    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
 //    HomeViewController *vc = [[HomeViewController alloc]init];
